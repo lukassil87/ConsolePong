@@ -19,23 +19,21 @@ namespace ConsolePong
         * - x
         * - y
         */
+        public int X { get { return x; } set { x = value; } } // TODO A_1
+        public int Y { get { return y; } set { y = value; } } // TODO A_1
 
-        public int X { get { return 0; } set { } } // TODO A_1
-        public int Y { get { return 0; } set { } } // TODO A_1
-
-
-        public Vector2D (int x, int y)
+        public Vector2D(int x, int y)
         {
             /* T0-Klasse 00 - Aufgabe_2
              * 
              * Implementiere den Konstruktor, sodass die übergebenen Werte in die Felder der Klasse gespeichert werden
             */
-
-            // TODO A_2
+            X = x; // TODO A_2
+            Y = y; // TODO A_2
         }
 
         // Überladung des Plus-Operators
-        public static Vector2D operator + (Vector2D v1, Vector2D v2)
+        public static Vector2D operator +(Vector2D v1, Vector2D v2)
         {
             /* T0-Klasse 00 - Aufgabe_3
              * 
@@ -48,7 +46,7 @@ namespace ConsolePong
              * - v2.X/Y
             */
 
-            return null; // TODO A_3
+            return new Vector2D(v1.X + v2.X, v1.Y + v2.Y); // TODO A_3
         }
 
         // ToString Mehtode zum testen der Addition + allgemeines testen empfohlen
