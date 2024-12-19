@@ -42,8 +42,13 @@ namespace ConsolePong
         public static void DrawCenterLine()
         {
             // TODO A_1
-            
-            
+            int x = Console.WindowWidth / 2;
+            for (int y = 0; y < Console.WindowHeight; y = y + 2)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write("|");
+            }
+
         }
     }
 }
