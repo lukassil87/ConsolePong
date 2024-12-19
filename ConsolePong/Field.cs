@@ -11,7 +11,7 @@ namespace ConsolePong
         // Konsolenfenster als Pong-Spielfeld konfigurieren und formatieren:
         public static void Draw(Vector2D size, ConsoleColor foreCoIor, ConsoleColor backColor) {
             // Fenstertitel setzen:
-            Console.Title = "CONSOLRE PONG";
+            Console.Title = "CONSOLE PONG";
             // Fenster-Größe setzen
             Console.SetWindowSize(size.X, size.Y);
             // Buffer-Größe setzen, um Scroll-Balken zu vermeiden:
@@ -42,6 +42,13 @@ namespace ConsolePong
         public static void DrawCenterLine()
         {
             // TODO A_1
+            int x = Console.WindowWidth / 2;
+            for (int y = 0; y < Console.WindowHeight; y = y + 2)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write("|");
+            }
+
         }
     }
 }

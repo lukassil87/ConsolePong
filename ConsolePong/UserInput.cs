@@ -28,9 +28,20 @@ namespace ConsolePong
                  * - rechtes Paddle nach unten bewegen
                 */
 
-                if (GetAsyncKeyState((int)ConsoleKey.X) != 0)
-                    paddleLeft.Update("direction");
+                if (GetAsyncKeyState((int)ConsoleKey.W) != 0)
+                    paddleLeft.Update("up");
 
+                if (GetAsyncKeyState((int)ConsoleKey.S) != 0)
+                    paddleLeft.Update("down");
+
+                if (GetAsyncKeyState((int)ConsoleKey.O) != 0)
+                    paddleRight.Update("up");
+
+                if (GetAsyncKeyState((int)ConsoleKey.L) != 0)
+                    paddleRight.Update("down");
+
+                if ((GetAsyncKeyState((int)ConsoleKey.Escape)) != 0)
+                    return false;
                 // TODO A_1
 
                 /* T1-Klasse 02 - Aufgabe_2
