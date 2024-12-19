@@ -52,8 +52,31 @@ namespace ConsolePong
             */
 
             // TODO A_1
-
+            if (ballPosition.X >= paddleRight.Position.X - 1 &&
+                ballPosition.X <= paddleRight.Position.X + ballVelocity.X - 2 &&
+                ballPosition.Y >= paddleRight.Position.Y &&
+                ballPosition.Y < paddleRight.Position.Y + paddleRight.Size)
+            {
+                if (ballPosition.Y < paddleRight.Position.Y + paddleRight.Size / 3)
+                {
+                    ballVelocity.X = -4; ballVelocity.Y = -1;
+                }
+                else if (ballPosition.Y < paddleRight.Position.Y + 2 + paddleRight.Size / 3)
+                {
+                    ballVelocity.X = -4; ballVelocity.Y = 0;
+                }
+                else
+                {
+                    ballVelocity.X = -4; ballVelocity.Y = 1;
+                }
+                //ballPosition.X = paddleRight.Position.X - 1;
+                //velocity.X *= -1;
+                return true;
+            }
             return false;
         }
+
+
+
     }
 }
