@@ -20,8 +20,8 @@ namespace ConsolePong
         * - y
         */
 
-        public int X { get { return 0; } set { } } // TODO A_1
-        public int Y { get { return 0; } set { } } // TODO A_1
+        public int X { get { return 0; } set { x = value  } } // TODO A_1
+        public int Y { get { return 0; } set {y = value } } // TODO A_1
 
 
         public Vector2D (int x, int y)
