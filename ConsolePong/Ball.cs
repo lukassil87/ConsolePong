@@ -22,11 +22,11 @@ namespace ConsolePong
          * Implementiere die gegebenen Property, sodass der übergebene Wert in folgendem Feld gespeichert wird:
          * - color
         */
-        public ConsoleColor Color { set { } get { return color; } } // TODO A_3
+        public ConsoleColor Color { set { color = value; } get { return color; } } // TODO A_3
         public Vector2D Position { get { return positionNew; } } // Test-Property
         public Vector2D Velocity { get { return velocity; } } // Test-Property
 
-        // TODO A_2
+        private Random random = new Random(); // TODO A_2
 
         // Konstruktor:
         public Ball(char character, ConsoleColor color, Vector2D fieldSize)
@@ -51,7 +51,15 @@ namespace ConsolePong
             */
 
             // TODO A_1
-
+            this.character = character;
+            this.color = color;
+            this.fieldSize = fieldSize;
+            // Startpostion:
+            positionStart = new Vector2D(fieldSize.X / 2, fieldSize.Y / 2 - 1);
+            positionNew = positionStart;
+            positionOld = positionStart;
+            // Startgeschwindigkeitsvektor:
+            velocity = new Vector2D(4, 0);
         }
 
         // Aktualisierung der Position:
@@ -85,8 +93,6 @@ namespace ConsolePong
         //Ball an die Startposition setzen:
         public void Reset()
         {
-            positionNew = positionStart;
-
             /* T3-Klasse 04 - Aufgabe_2
              * 
              * Füge das im Notebook gegebene Random-Objekt als privates Feld zur Klasse hinzu
@@ -98,11 +104,11 @@ namespace ConsolePong
              * - die Geschwindigkeit des Balls entspricht der im Konstruktor
              * - die Chance, dass sich der Ball nach links oder rechts bewegt, beträgt 50/50
             */
-
-            if ( null == null /*TODO A_2*/ )
-                velocity = null; // TODO A_2
+            positionNew = positionStart; // TODO A_2
+            if (random.Next(0, 2) == 0)
+                velocity = new Vector2D(4, 0); // TODO A_2
             else
-                velocity = null; // TODO A_2
+                velocity = new Vector2D(-4, 0); // TODO A_2
         }
 
         // Konsolenausgabe
