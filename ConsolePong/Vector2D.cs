@@ -20,8 +20,8 @@ namespace ConsolePong
         * - y
         */
 
-        public int X { get { return 0; } set { } } // TODO A_1
-        public int Y { get { return 0; } set { } } // TODO A_1
+        public int X { get { return x; } set { x = value; } } // TODO A_1
+        public int Y { get { return y; } set { y = value; } } // TODO A_1
 
 
         public Vector2D (int x, int y)
@@ -31,7 +31,8 @@ namespace ConsolePong
              * Implementiere den Konstruktor, sodass die übergebenen Werte in die Felder der Klasse gespeichert werden
             */
 
-            // TODO A_2
+            X = x;
+            Y = y;
         }
 
         // Überladung des Plus-Operators
@@ -48,7 +49,7 @@ namespace ConsolePong
              * - v2.X/Y
             */
 
-            return null; // TODO A_3
+            return new Vector2D(v1.X + v2.X, v1.Y + v2.Y); // TODO A_3
         }
 
         // ToString Mehtode zum testen der Addition + allgemeines testen empfohlen
