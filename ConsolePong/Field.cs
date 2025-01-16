@@ -39,11 +39,16 @@ namespace ConsolePong
          * - Console.SetCursorPosition(<X>, <Y>)
          * - 'Console.Write("|");
         */
+
+       
         public static void DrawCenterLine()
         {
-            for(int i = 0; i < Console.WindowHeight; i++)
+
+   
+            for(int i = 0; i < Console.WindowHeight; i+=2)
             {
-                // TODO A_1
+                Console.SetCursorPosition(Console.WindowWidth / 2, i );
+                Console.Write("|");
             }
         }
     }
