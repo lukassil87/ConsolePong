@@ -51,23 +51,23 @@ namespace ConsolePong
 
                 // TODO_A1-Start - Kollision mit paddle Right:
             /*TODO-Start*/
-            if (ballPosition.X <= paddleRight.Position.X + 1 &&             
-                ballPosition.X >= paddleRight.Position.X + ballVelocity.X + 2 &&
+            if (ballPosition.X >= paddleRight.Position.X - 1 &&             
+                ballPosition.X <= paddleRight.Position.X + ballVelocity.X - 2 &&
                 ballPosition.Y >= paddleRight.Position.Y &&
                 ballPosition.Y < paddleRight.Position.Y + paddleRight.Size)
             /*TODO-End*/
             {
                 if (ballPosition.Y < paddleRight.Position.Y + paddleRight.Size / 3)
                 {
-                    ballVelocity.X = 4; ballVelocity.Y = -1; // TODO
+                    ballVelocity.X = -4; ballVelocity.Y = -1; // TODO
                 }
                 else if (ballPosition.Y < paddleRight.Position.Y + 2 + paddleRight.Size / 3)
                 {
-                    ballVelocity.X = 4; ballVelocity.Y = 0; // TODO
+                    ballVelocity.X = -4; ballVelocity.Y = 0; // TODO
                 }
                 else
                 {
-                    ballVelocity.X = 4; ballVelocity.Y = 1; // TODO
+                    ballVelocity.X = -4; ballVelocity.Y = 1; // TODO
                 }
                 // TODO_A1-End
                 return true;
