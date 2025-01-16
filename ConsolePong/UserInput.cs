@@ -30,6 +30,12 @@ namespace ConsolePong
 
                 if (GetAsyncKeyState((int)ConsoleKey.W) != 0)
                     paddleLeft.Update("up"); // "down" würde das Paddle nach unten bewegen
+                if (GetAsyncKeyState((int)ConsoleKey.S) != 0)
+                    paddleLeft.Update("down");
+                if (GetAsyncKeyState((int)ConsoleKey.O) != 0)
+                    paddleRight.Update("up");
+                if (GetAsyncKeyState((int)ConsoleKey.L) != 0)
+                    paddleRight.Update("down");
 
                 // TODO A_1
 
@@ -40,6 +46,8 @@ namespace ConsolePong
                 */
 
                 // TODO A_2
+                if (GetAsyncKeyState((int)ConsoleKey.Escape) != 0) 
+                return false;
 
             }
             return true;
