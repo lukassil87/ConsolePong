@@ -19,42 +19,47 @@ namespace ConsolePong
 
         /* T3-Klasse 04 - Aufgabe_3
          * 
-         * Implementiere die gegebenen Property (Setter), sodass der übergebene Wert im Feld color gespeichert wird
+         * Implementiere die gegebenen Property, sodass der übergebene Wert in folgendem Feld gespeichert wird:
+         * - color
         */
-        public ConsoleColor Color { set { } get { return color; } } // TODO A_3
+        public ConsoleColor Color { set { color = value; } get { return color; } } // TODO A_3
         public Vector2D Position { get { return positionNew; } } // Test-Property
         public Vector2D Velocity { get { return velocity; } } // Test-Property
 
-        private Random random = new Random();
+        private Random random = new Random(); // TODO A_2
 
         // Konstruktor:
         public Ball(char character, ConsoleColor color, Vector2D fieldSize)
         {
             /* T3-Klasse 04 - Aufgabe_1
              * 
-             * Die Startposition soll mit dem richtigen Wert initialisiert werden
+             * Implementiere den Konstruktor, sodass die übergebenen Werte in die Felder der Klasse gespeichert werden
+             * Weiters sollten die position-Felder und velocity mit passenden Werten initialisiert werden
              * 
              * Folgendes ist zu beachten:
-             * - Startposition = Mitte des Spielfelds
-             *      - berechne den Startpositions-Vektor mittels der folgenden Eigenschaften:
-             *           - fieldSize.X
-             *           - fieldSize.Y
+             * - die Startposition entspricht der Mitte des Spielfelds
+             *      - berechne den Positions-Vektor mittels der gegebenen Eigenschaften
+             * - alle position-Felder (start/old/new) übernehmen den gleichen Initialwert
+             *      - übergib den Wert der Startposition an die weiteren position-Felder
+             * - der Ball bewegt sich zum Spielstart ausschließlich horizontal (<- Ball ->)
+             *      - setze den Y-Wert des Bewegungs Vektors initial auf 0
              * 
-             * TIPP: Um die Mitte der Y-Koordinate zu erhalten muss zusätzlich 1 davon abgezogen werden (-1)
+             * Für die Berechnung der Initialwerte (position, veloctiy) werden folgende Methoden und Eigenschaften benötigt:
+             * - new Vector2D (<X>, <Y>)
+             * - fieldSize.X
+             * - fieldSize.Y
             */
+
+            // TODO A_1
             this.character = character;
             this.color = color;
             this.fieldSize = fieldSize;
-
-            positionStart = new Vector2D(0, 0); // TODO A_1
-
+            // Startpostion:
+            positionStart = new Vector2D(fieldSize.X / 2, fieldSize.Y / 2 - 1);
             positionNew = positionStart;
             positionOld = positionStart;
-
             // Startgeschwindigkeitsvektor:
             velocity = new Vector2D(4, 0);
-
-
         }
 
         // Aktualisierung der Position:
@@ -88,27 +93,22 @@ namespace ConsolePong
         //Ball an die Startposition setzen:
         public void Reset()
         {
-            positionNew = positionStart;
-
             /* T3-Klasse 04 - Aufgabe_2
              * 
-             * Abhängig von dem in Zeile 28 definierten Random-Objekt (random) soll die Startrichtung des Balls bestimmt werden
-             * Ersetze die Werte "42" in der Abfrage unten durch die gewünschte Funktionalität
-             * 
+             * Füge das im Notebook gegebene Random-Objekt als privates Feld zur Klasse hinzu
+             * Abhängig von diesem soll die Startrichtung des Balls bestimmt werden
+             * Ersetze die null-Werte in der Abfrage unten durch die gewünschte Funktionalität
              * 
              * Folgendes ist zu beachten:
-             * 
-             * 1. die Chance, dass sich der Ball nach links oder rechts bewegt, beträgt 50/50
-             * 
-             * 2. die Geschwindigkeit des Balls entspricht der im Konstruktor
-             * 
-             * 3. die Startbewegung des Ball ist wie beim Spielstart ausschließlich horizontal (<- Ball ->)
+             * - die Startbewegung des Ball ist wie beim Spielstart ausschließlich horizontal (<- Ball ->)
+             * - die Geschwindigkeit des Balls entspricht der im Konstruktor
+             * - die Chance, dass sich der Ball nach links oder rechts bewegt, beträgt 50/50
             */
-
-            if ( random.Next(0,42) == 0 /*TODO A_2*/ )
-                velocity = new Vector2D(42, 42); // TODO A_2
+            positionNew = positionStart; // TODO A_2
+            if (random.Next(0, 2) == 0)
+                velocity = new Vector2D(4, 0); // TODO A_2
             else
-                velocity = new Vector2D(42, 42); // TODO A_2
+                velocity = new Vector2D(-4, 0); // TODO A_2
         }
 
         // Konsolenausgabe
