@@ -17,6 +17,8 @@ namespace ConsolePong
         */
 
         // TODO A_1
+        private int playerLeftScore;
+        private int playerRightScore;
 
         private Ball ball;
 
@@ -41,6 +43,14 @@ namespace ConsolePong
             */
 
             // TODO A_2
+            this.ball = ball;
+            this.paddleLeft = paddleLeft;
+            this.paddleLeftColor = paddleLeftColor;
+            this.paddleRight = paddleRight;
+            this.paddleRightColor = paddleRightColor;
+            this.fieldSize = fieldSize;
+            this.paddleOffset = paddleOffset;
+            this.ballColor = ballColor;
         }
 
         // Konsolenausgabe
@@ -49,10 +59,10 @@ namespace ConsolePong
             ConsoleColor foregroundColor = Console.ForegroundColor;
             Console.ForegroundColor = paddleLeftColor;
             Console.SetCursorPosition(paddleOffset - 1 + (fieldSize.X / 2 - paddleOffset) / 2, 1);
-            Console.Write("playerLeftScore");
+            Console.Write(playerLeftScore);
             Console.ForegroundColor = paddleRightColor;
             Console.SetCursorPosition(fieldSize.X / 2 + (fieldSize.X / 2 - paddleOffset) / 3, 1);
-            Console.Write("playerRightScore");
+            Console.Write(playerRightScore);
             Console.ForegroundColor = foregroundColor;
         }
 
@@ -91,8 +101,8 @@ namespace ConsolePong
              * 
              * TIPP: Die fieldSize verhällt sich ähnliche der Nummerierung eines Arrays, die erste Stelle entspricht somit 0 und die letze ist um 1 geringer als die gesamte fieldSize
             */
-            if (ballPosition.X == null) { /* TODO A_3 */ return "right player score test string (do not delete)"; }
-            if (ballPosition.X == null) { /* TODO A_3 */ return "left player score test string (do not delete)"; }
+            if (ballPosition.X == 0) { /* TODO A_3 */ playerRightScore++; PointReset(); return "right player score test string (do not delete)"; }
+            if (ballPosition.X == fieldSize.X - 1) { /* TODO A_3 */ playerLeftScore++; PointReset(); return "left player score test string (do not delete)"; }
 
             return "no return test string (do not delete)";
         }
