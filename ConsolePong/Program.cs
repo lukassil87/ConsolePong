@@ -11,19 +11,8 @@ namespace ConsolePong
     {
         static void Main(string[] args)
         {
-            Vector2D fieldSize = new Vector2D(80, 25);
 
-            TestPaddle leftPaddle = new TestPaddle("Left Paddle", '█', 4, ConsoleColor.Green, new Vector2D(10, 10), fieldSize);
-            TestPaddle rightPaddle = new TestPaddle("Right Paddle", '█', 4, ConsoleColor.Green, new Vector2D(fieldSize.X - 10, 10), fieldSize);
-
-            Console.CursorVisible = false;
-
-            bool testLoop = true;
-            while (testLoop)
-            {
-                Field.DrawCenterLine();
-                testLoop = UserInput.GetKeyState(leftPaddle, rightPaddle);
-            }
+            new Game().Run();
         }
     }
 
